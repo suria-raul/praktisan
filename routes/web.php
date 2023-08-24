@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnyVerbController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/basic-route', function () {
+    return 'Basic route!';
+});
+
+Route::any('/any-verb-here/{param?}', AnyVerbController::class);
