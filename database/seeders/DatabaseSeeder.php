@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
 //        Post::factory(10)->create();
 //        Tag::factory(10)->create();
 
-        Category::factory(10)->create();
-        Comment::factory(10)->create();
+//        Category::factory(10)->create();
+//        Comment::factory(10)->create();
     }
 }

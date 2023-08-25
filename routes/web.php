@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AnyVerbController;
+use App\Http\Controllers\AuthController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,5 +24,13 @@ Route::get('/', function () {
 Route::get('/basic-route', function () {
     return 'Basic route!';
 });
+
+Route::view('/login', 'login')->name('viewLogin');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/logged-in', [AuthController::class, 'loggedIn'])->name('logged_in')->middleware(['auth', 'auth.session']);
+
+Route::post('/checker', [AuthController::class, 'checker']);
 
 Route::any('/any-verb-here/{param?}', AnyVerbController::class);

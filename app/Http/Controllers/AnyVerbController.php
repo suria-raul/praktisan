@@ -14,6 +14,7 @@ class AnyVerbController extends Controller
         return [
             'key' => 'value',
             'request' => $request,
+            'user' => $request->user(),
             'param' => $param
         ];
     }
