@@ -2,6 +2,6 @@ import './bootstrap';
 
 Echo.channel('login-notification')
     .listen('LoginNotification', (e) => {
-        alert('You have been logged out!')
-        window.location.href = route('viewLogin')
+        alert(e.message)
+        window.location.href = '/'
     })

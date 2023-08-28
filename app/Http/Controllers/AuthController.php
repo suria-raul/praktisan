@@ -20,14 +20,9 @@ class AuthController extends Controller
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
 
         Auth::login($user);
-        event(new LoginNotification());
-
-        return $this->authenticated($credentials['password']);
-    }
-
-    protected function authenticated(string $password)
-    {
-        Auth::logoutOtherDevices($password);
+        Auth::logoutOtherDevices($credentials['password']);
+//        event(new LoginNotification('A message'));
+        LoginNotification::dispatch('You have been logged out');
 
         return redirect()->intended();
     }

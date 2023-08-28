@@ -17,9 +17,9 @@ class LoginNotification implements ShouldBroadcast
     /**
      * Create a new event instance.
      */
-    public function __construct()
+    public function __construct(public string $message)
     {
-
+        $this->message = $message;
     }
 
     /**
