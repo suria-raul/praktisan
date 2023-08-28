@@ -20,7 +20,7 @@ class AuthController extends Controller
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
 
         Auth::login($user);
-        event(new LoginNotification('Just a message'));
+        event(new LoginNotification());
 
         return $this->authenticated($credentials['password']);
     }
