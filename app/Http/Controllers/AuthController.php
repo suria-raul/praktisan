@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\LoginNotification;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +20,7 @@ class AuthController extends Controller
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
 
         Auth::login($user);
+        event(new LoginNotification('Just a message'));
 
         return $this->authenticated($credentials['password']);
     }

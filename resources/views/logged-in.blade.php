@@ -1,6 +1,20 @@
-<form action="{{ route('logout') }}" method="POST">
-    {{ csrf_field() }}
-    <input type="submit" value="logout">
-</form>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 
-<h3>You are logged in!</h3>
+    @vite(['resources/js/app.js'])
+</head>
+<body>
+    <div id="app">
+        <form action="{{ route('logout') }}" method="POST">
+            {{ csrf_field() }}
+            <input type="submit" value="logout">
+        </form>
+        <h3>You are logged in!</h3>
+    </div>
+</body>
+</html>

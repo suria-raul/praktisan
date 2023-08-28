@@ -25,6 +25,15 @@ Route::get('/basic-route', function () {
     return 'Basic route!';
 });
 
+Route::get('/check-auth', function () {
+    return response()->json(
+        [
+            'is_logged_in' => session('logged_in'),
+            'logged_in' => auth()->check(),
+        ]
+    );
+});
+
 Route::view('/login', 'login')->name('viewLogin');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
