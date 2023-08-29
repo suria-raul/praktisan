@@ -2,14 +2,16 @@
 
 namespace App\Jobs;
 
+use App\Mail\SendEmail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Mail;
 
-class ProcessAttachments implements ShouldQueue
+class MailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -26,6 +28,6 @@ class ProcessAttachments implements ShouldQueue
      */
     public function handle(): void
     {
-        //
+        Mail::to('raulsuria.ils@gmail.com')->send(new SendEmail());
     }
 }

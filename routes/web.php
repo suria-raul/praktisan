@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnyVerbController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EmailController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,8 @@ Route::get('/check-auth', function () {
         ]
     );
 });
+
+Route::get('/send-email', [EmailController::class, 'sendEmail']);
 
 Route::view('/login', 'login')->name('viewLogin');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
