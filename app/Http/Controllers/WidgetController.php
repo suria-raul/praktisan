@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreWidgetRequest;
+use App\Models\Widget;
 use Illuminate\Http\Request;
 use App\WidgetRepository;
 use App\Http\Resources\WidgetCollection;
@@ -26,9 +28,9 @@ class WidgetController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreWidgetRequest $storeWidgetRequest)
     {
-        //
+        return Widget::create($storeWidgetRequest->validated());
     }
 
     /**

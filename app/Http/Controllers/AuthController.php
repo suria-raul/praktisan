@@ -40,7 +40,15 @@ class AuthController extends Controller
 
     public function checker(Request $request)
     {
-        return Auth::logoutOtherDevices($request->get('password'));
+        if (auth()->check()) {
+            return response()->json([
+                'is_auth' => true
+            ]);
+        }
+
+        return response()->json([
+           'is_auth' => false
+        ]);
     }
 
     public function loggedIn(Request $request)

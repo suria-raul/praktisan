@@ -26,15 +26,6 @@ Route::get('/basic-route', function () {
     return 'Basic route!';
 });
 
-Route::get('/check-auth', function () {
-    return response()->json(
-        [
-            'is_logged_in' => session('logged_in'),
-            'logged_in' => auth()->check(),
-        ]
-    );
-});
-
 Route::get('/send-email', [EmailController::class, 'sendEmail']);
 
 Route::view('/login', 'login')->name('viewLogin');
@@ -43,6 +34,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/logged-in', [AuthController::class, 'loggedIn'])->name('logged_in')->middleware(['auth', 'auth.session']);
 
-Route::post('/checker', [AuthController::class, 'checker']);
+Route::get('/checker', [AuthController::class, 'checker']);
 
 Route::any('/any-verb-here/{param?}', AnyVerbController::class);
