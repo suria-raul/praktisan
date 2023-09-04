@@ -20,13 +20,13 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-         User::factory()->create([
-             'name' => 'Test User',
-             'email' => 'test@example.com',
-             'password' => 'password',
-         ]);
+//         User::factory()->create([
+//             'name' => 'Test User',
+//             'email' => 'test@example.com',
+//             'password' => 'password',
+//         ]);
 
-//        Widget::factory(10)->create();
+        Widget::factory(100)->create();
 //        Post::factory(10)->create();
 //        Tag::factory(10)->create();
 

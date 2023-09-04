@@ -8,6 +8,8 @@ class WidgetRepository
 {
     public function getAllWidget()
     {
-        return Widget::all();
+//        return Widget::paginate(5);
+//        return Widget::simplePaginate(5);
+        return Widget::cursorPaginate(5);
     }
 }
