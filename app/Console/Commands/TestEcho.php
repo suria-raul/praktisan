@@ -26,7 +26,7 @@ class TestEcho extends Command
      */
     public function handle()
     {
-//        echo 'This is the custom command! ' . $this->argument('number') . PHP_EOL;
+        echo 'This is the custom command! ' . $this->argument('number') . PHP_EOL;
 //        $this->table(['Name', 'Email'], User::all(['name', 'email'])->toArray());
     }
 }

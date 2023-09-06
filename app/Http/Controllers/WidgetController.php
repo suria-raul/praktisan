@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\WidgetRepositoryInterface;
 use App\Http\Requests\StoreWidgetRequest;
 use App\Models\Widget;
 use Illuminate\Http\Request;
@@ -10,11 +11,11 @@ use App\Http\Resources\WidgetCollection;
 
 class WidgetController extends Controller
 {
-    protected WidgetRepository $widgetRepository;
+    protected WidgetRepositoryInterface $widgetRepositoryInterface;
 
-    public function __construct(WidgetRepository $widgetRepository)
+    public function __construct(WidgetRepositoryInterface $widgetRepositoryInterface)
     {
-        $this->widgetRepository = $widgetRepository;
+        $this->widgetRepositoryInterface = $widgetRepositoryInterface;
     }
 
     /**
@@ -22,7 +23,7 @@ class WidgetController extends Controller
      */
     public function index()
     {
-        return new WidgetCollection($this->widgetRepository->getAllWidget());
+        return new WidgetCollection($this->widgetRepositoryInterface->getAll());
     }
 
     /**
