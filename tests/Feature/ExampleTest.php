@@ -16,4 +16,18 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_random_route_returns_a_successful_response(): void
+    {
+        $response = $this->get('random-route');
+
+        $response->assertStatus(200);
+    }
+
+    public function test_random_route_content(): void
+    {
+        $response = $this->get('random-route');
+
+        $response->assertContent('The Test Route!');
+    }
 }

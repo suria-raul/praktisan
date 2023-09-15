@@ -31,9 +31,11 @@ Route::get('/send-email', [EmailController::class, 'sendEmail']);
 Route::view('/login', 'login')->name('viewLogin');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
 Route::get('/logged-in', [AuthController::class, 'loggedIn'])->name('logged_in')->middleware(['auth', 'auth.session']);
-
 Route::get('/checker', [AuthController::class, 'checker']);
+
+Route::get('/random-route', function () {
+    return response('The Test Route!', 200);
+});
 
 Route::any('/any-verb-here/{param?}', AnyVerbController::class);
