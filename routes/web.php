@@ -6,6 +6,7 @@ use App\Http\Controllers\EmailController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,7 @@ Route::get('/logged-in', [AuthController::class, 'loggedIn'])->name('logged_in')
 Route::get('/checker', [AuthController::class, 'checker']);
 
 Route::get('/random-route', function () {
-    return response('The Test Route!', 200);
+    return response('The Test Route!', Response::HTTP_OK);
 });
 
 Route::any('/any-verb-here/{param?}', AnyVerbController::class);

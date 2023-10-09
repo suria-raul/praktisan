@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contracts\WidgetRepositoryInterface;
 use App\Http\Requests\StoreWidgetRequest;
+use App\Http\Resources\WidgetResource;
 use App\Models\Widget;
 use Illuminate\Http\Request;
 use App\WidgetRepository;
@@ -23,7 +24,7 @@ class WidgetController extends Controller
      */
     public function index()
     {
-        return new WidgetCollection($this->widgetRepositoryInterface->getAll());
+        return WidgetResource::collection($this->widgetRepositoryInterface->paginate(10));
     }
 
     /**
